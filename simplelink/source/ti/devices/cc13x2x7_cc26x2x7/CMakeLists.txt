@@ -47,3 +47,24 @@ zephyr_library_sources_ifdef(CONFIG_BLE_CC13XX_CC26XX driverlib/rfc.c)
 zephyr_library_sources_ifdef(CONFIG_SOC_FLASH_CC13XX_CC26XX driverlib/flash.c)
 
 zephyr_library_sources_ifdef(CONFIG_ADC_CC13XX_CC26XX driverlib/aux_adc.c)
+
+# Required for RF Prop Driver(Custom Radio Driver)
+zephyr_library_sources_ifdef(CONFIG_PROP_RADIO_CC13XX_CC26XX
+    rf_patches/rf_patch_cpe_multi_protocol.c
+)
+
+zephyr_library_sources_ifdef(CONFIG_PROP_RADIO_CC13XX_CC26XX
+    rf_patches/rf_patch_cpe_prop.c
+)
+
+zephyr_library_sources_ifdef(CONFIG_PROP_RADIO_CC13XX_CC26XX
+    rf_patches/rf_patch_mce_genook.c
+)
+
+zephyr_library_sources_ifdef(CONFIG_PROP_RADIO_CC13XX_CC26XX
+    rf_patches/rf_patch_rfe_genook.c
+)
+
+zephyr_library_sources_ifdef(CONFIG_PROP_RADIO_CC13XX_CC26XX
+    driverlib/rfc.c
+)
